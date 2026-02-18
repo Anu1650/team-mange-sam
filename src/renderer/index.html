@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casablanca AI - Sam's Zerobytes Corporation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">🎯</span>
+        <span class="logo-text">Casablanca AI</span>
+        <span class="brand-tag">by Sam's Zerobytes</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-section="dashboard">
+          <span class="nav-icon">📊</span>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-section="team">
+          <span class="nav-icon">👥</span>
+          <span>Team</span>
+        </button>
+        <button class="nav-item" data-section="projects">
+          <span class="nav-icon">📁</span>
+          <span>Projects</span>
+        </button>
+        <button class="nav-item" data-section="tasks">
+          <span class="nav-icon">✓</span>
+          <span>Tasks</span>
+        </button>
+        <button class="nav-item" data-section="clients">
+          <span class="nav-icon">🤝</span>
+          <span>Clients</span>
+        </button>
+        <button class="nav-item" data-section="approvals">
+          <span class="nav-icon">📋</span>
+          <span>Approvals</span>
+        </button>
+        <button class="nav-item" data-section="finance">
+          <span class="nav-icon">💰</span>
+          <span>Finance</span>
+        </button>
+        <button class="nav-item" data-section="decisions">
+          <span class="nav-icon">⚖️</span>
+          <span>Decisions</span>
+        </button>
+        <button class="nav-item" data-section="files">
+          <span class="nav-icon">📎</span>
+          <span>Files</span>
+        </button>
+        <button class="nav-item" data-section="chat">
+          <span class="nav-icon">💬</span>
+          <span>Chat</span>
+        </button>
+        <button class="nav-item" data-section="meetings">
+          <span class="nav-icon">📹</span>
+          <span>Meetings</span>
+        </button>
+        <button class="nav-item" data-section="announcements">
+          <span class="nav-icon">📢</span>
+          <span>Announcements</span>
+        </button>
+        <button class="nav-item" data-section="reports">
+          <span class="nav-icon">📈</span>
+          <span>Reports</span>
+        </button>
+      </nav>
+      <div class="user-profile" id="userProfile">
+        <div class="user-avatar" id="currentUserAvatar">S</div>
+        <div class="user-info">
+          <span class="user-name" id="currentUserName">Samarth</span>
+          <span class="user-role" id="currentUserRole">Chairman</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <h1 id="pageTitle">Dashboard</h1>
+        <div class="header-actions">
+          <span class="company-tag">San's Zerobytes Corporation</span>
+          <button class="btn btn-primary" id="quickActionBtn">+ Quick Action</button>
+        </div>
+      </header>
+
+      <div class="content" id="contentArea">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon tasks-icon">✓</div>
+              <div class="stat-info">
+                <span class="stat-value" id="statTasks">0</span>
+                <span class="stat-label">Pending Tasks</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon projects-icon">📁</div>
+              <div class="stat-info">
+                <span class="stat-value" id="statProjects">0</span>
+                <span class="stat-label">Active Projects</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon clients-icon">🤝</div>
+              <div class="stat-info">
+                <span class="stat-value" id="statClients">0</span>
+                <span class="stat-label">Total Clients</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon team-icon">👥</div>
+              <div class="stat-info">
+                <span class="stat-value" id="statTeam">0</span>
+                <span class="stat-label">Team Members</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon approvals-icon">📋</div>
+              <div class="stat-info">
+                <span class="stat-value" id="statApprovals">0</span>
+                <span class="stat-label">Pending Approvals</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon finance-icon">💰</div>
+              <div class="stat-info">
+                <span class="stat-value" id="statBalance">₹0</span>
+                <span class="stat-label">Net Balance</span>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-grid">
+            <div class="card">
+              <h3>Recent Activity</h3>
+              <div class="activity-list" id="activityList">
+                <div class="activity-item">Welcome to Casablanca AI!</div>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Quick Actions</h3>
+              <div class="quick-actions">
+                <button class="action-btn" onclick="showSection('tasks'); openTaskModal()">+ New Task</button>
+                <button class="action-btn" onclick="showSection('projects'); openProjectModal()">+ New Project</button>
+                <button class="action-btn" onclick="showSection('clients'); openClientModal()">+ New Client</button>
+                <button class="action-btn" onclick="showSection('approvals'); openApprovalModal()">+ Request Approval</button>
+                <button class="action-btn" onclick="showSection('finance'); openExpenseModal()">+ Add Expense</button>
+                <button class="action-btn" onclick="showSection('meetings'); openMeetingModal()">+ Schedule Meeting</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section">
+          <div class="section-header">
+            <button class="btn btn-primary" onclick="openUserModal()">+ Add Team Member</button>
+          </div>
+          <div class="team-grid" id="teamGrid"></div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+          <div class="section-header">
+            <button class="btn btn-primary" onclick="openProjectModal()">+ New Project</button>
+          </div>
+          <div class="projects-grid" id="projectsGrid"></div>
+        </section>
+
+        <!-- Tasks Section -->
+        <section id="tasks" class="section">
+          <div class="kanban-board">
+            <div class="kanban-column" data-status="todo">
+              <h3>To Do <span class="count" id="todoCount">0</span></h3>
+              <div class="task-list" id="todoTasks"></div>
+            </div>
+            <div class="kanban-column" data-status="inprogress">
+              <h3>In Progress <span class="count" id="inprogressCount">0</span></h3>
+              <div class="task-list" id="inprogressTasks"></div>
+            </div>
+            <div class="kanban-column" data-status="review">
+              <h3>Review <span class="count" id="reviewCount">0</span></h3>
+              <div class="task-list" id="reviewTasks"></div>
+            </div>
+            <div class="kanban-column" data-status="done">
+              <h3>Done <span class="count" id="doneCount">0</span></h3>
+              <div class="task-list" id="doneTasks"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Clients Section -->
+        <section id="clients" class="section">
+          <div class="section-header">
+            <button class="btn btn-primary" onclick="openClientModal()">+ Add Client</button>
+          </div>
+          <div class="clients-grid" id="clientsGrid"></div>
+        </section>
+
+        <!-- Approvals Section -->
+        <section id="approvals" class="section">
+          <div class="section-header">
+            <button class="btn btn-primary" onclick="openApprovalModal()">+ New Request</button>
+          </div>
+          <div class="approvals-list" id="approvalsList"></div>
+        </section>
+
+        <!-- Finance Section -->
+        <section id="finance" class="section">
+          <div class="finance-header">
+            <div class="finance-summary">
+              <div class="finance-card income">
+                <span class="finance-label">Total Income</span>
+                <span class="finance-value" id="totalIncome">₹0</span>
+              </div>
+              <div class="finance-card expenses">
+                <span class="finance-label">Total Expenses</span>
+                <span class="finance-value" id="totalExpenses">₹0</span>
+              </div>
+              <div class="finance-card balance">
+                <span class="finance-label">Net Balance</span>
+                <span class="finance-value" id="netBalance">₹0</span>
+              </div>
+            </div>
+            <div class="finance-actions">
+              <button class="btn btn-primary" onclick="openExpenseModal()">+ Add Expense</button>
+              <button class="btn btn-success" onclick="openIncomeModal()">+ Add Income</button>
+            </div>
+          </div>
+          <div class="finance-tabs">
+            <button class="finance-tab active" data-tab="expenses" onclick="switchFinanceTab('expenses')">Expenses</button>
+            <button class="finance-tab" data-tab="income" onclick="switchFinanceTab('income')">Income</button>
+          </div>
+          <div class="finance-list" id="financeList"></div>
+        </section>
+
+        <!-- Decisions Section -->
+        <section id="decisions" class="section">
+          <div class="section-header">
+            <button class="btn btn-primary" onclick="openDecisionModal()">+ New Decision</button>
+          </div>
+          <div class="decisions-list" id="decisionsList"></div>
+        </section>
+
+        <!-- Files Section -->
+        <section id="files" class="section">
+          <div class="section-header">
+            <button class="btn btn-primary" onclick="openFileModal()">+ Upload File</button>
+          </div>
+          <div class="files-grid" id="filesGrid"></div>
+        </section>
+
+        <!-- Chat Section -->
+        <section id="chat" class="section">
+          <div class="chat-container">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+              <input type="text" id="messageInput" placeholder="Type a message...">
+              <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Meetings Section -->
+        <section id="meetings" class="section">
+          <div class="section-header">
+            <button class="btn btn-primary" onclick="openMeetingModal()">+ Schedule Meeting</button>
+          </div>
+          <div class="meetings-grid" id="meetingsGrid"></div>
+          <div class="video-call-container" id="videoCallContainer" style="display: none;">
+            <div class="video-grid" id="videoGrid"></div>
+            <div class="video-controls">
+              <button class="control-btn" id="toggleMicBtn" onclick="toggleMic()">🎤</button>
+              <button class="control-btn" id="toggleVideoBtn" onclick="toggleVideo()">📹</button>
+              <button class="control-btn" onclick="shareScreen()">🖥️</button>
+              <button class="control-btn leave-btn" onclick="leaveMeeting()">Leave</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Announcements Section -->
+        <section id="announcements" class="section">
+          <div class="section-header">
+            <button class="btn btn-primary" onclick="openAnnouncementModal()">+ New Announcement</button>
+          </div>
+          <div class="announcements-list" id="announcementsList"></div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="section">
+          <div class="reports-grid">
+            <div class="card">
+              <h3>Audit Logs</h3>
+              <div class="audit-list" id="auditList"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal" id="userModal">
+    <div class="modal-content">
+      <h2 id="userModalTitle">Add Team Member</h2>
+      <form id="userForm">
+        <input type="hidden" id="userId">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="userName" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="userEmail" required>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="text" id="userPhone">
+        </div>
+        <div class="form-group">
+          <label>Role</label>
+          <select id="userRole">
+            <option value="developer">Developer</option>
+            <option value="intern">Intern</option>
+            <option value="ceo">CEO</option>
+            <option value="cto">CTO</option>
+            <option value="cfo">CFO</option>
+            <option value="hr">HR</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Designation</label>
+          <input type="text" id="userDesignation">
+        </div>
+        <div class="form-group">
+          <label>Department</label>
+          <select id="userDepartment">
+            <option value="Technical">Technical</option>
+            <option value="Operations">Operations</option>
+            <option value="Management">Management</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Sales">Sales</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('userModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="taskModal">
+    <div class="modal-content">
+      <h2 id="taskModalTitle">New Task</h2>
+      <form id="taskForm">
+        <input type="hidden" id="taskId">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="taskTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="taskDescription"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Assignee</label>
+          <select id="taskAssignee"></select>
+        </div>
+        <div class="form-group">
+          <label>Project</label>
+          <select id="taskProject">
+            <option value="">No Project</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Priority</label>
+          <select id="taskPriority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Due Date</label>
+          <input type="date" id="taskDueDate">
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('taskModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="projectModal">
+    <div class="modal-content">
+      <h2>New Project</h2>
+      <form id="projectForm">
+        <div class="form-group">
+          <label>Project Name</label>
+          <input type="text" id="projectName" required>
+        </div>
+        <div class="form-group">
+          <label>Client</label>
+          <select id="projectClient">
+            <option value="">Internal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="projectDescription"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select id="projectStatus">
+            <option value="planning">Planning</option>
+            <option value="active">Active</option>
+            <option value="onhold">On Hold</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Due Date</label>
+          <input type="date" id="projectDueDate">
+        </div>
+        <div class="form-group">
+          <label>Budget</label>
+          <input type="number" id="projectBudget" placeholder="₹0">
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('projectModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="clientModal">
+    <div class="modal-content">
+      <h2>Add Client</h2>
+      <form id="clientForm">
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" id="clientCompany" required>
+        </div>
+        <div class="form-group">
+          <label>Contact Person</label>
+          <input type="text" id="clientContact">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="clientEmail">
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="text" id="clientPhone">
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <textarea id="clientAddress"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('clientModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Client</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="approvalModal">
+    <div class="modal-content">
+      <h2>New Approval Request</h2>
+      <form id="approvalForm">
+        <div class="form-group">
+          <label>Type</label>
+          <select id="approvalType">
+            <option value="leave">Leave Request</option>
+            <option value="expense">Expense Claim</option>
+            <option value="purchase">Purchase Request</option>
+            <option value="project">Project Approval</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="approvalTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="approvalDescription"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Amount (if applicable)</label>
+          <input type="number" id="approvalAmount" placeholder="₹0">
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('approvalModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="expenseModal">
+    <div class="modal-content">
+      <h2>Add Expense</h2>
+      <form id="expenseForm">
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" id="expenseDescription" required>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="expenseCategory">
+            <option value="office">Office Supplies</option>
+            <option value="travel">Travel</option>
+            <option value="food">Food & Beverages</option>
+            <option value="equipment">Equipment</option>
+            <option value="software">Software/Subscriptions</option>
+            <option value="marketing">Marketing</option>
+            <option value="utilities">Utilities</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Amount</label>
+          <input type="number" id="expenseAmount" required>
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="expenseDate">
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('expenseModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Expense</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="incomeModal">
+    <div class="modal-content">
+      <h2>Add Income</h2>
+      <form id="incomeForm">
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" id="incomeDescription" required>
+        </div>
+        <div class="form-group">
+          <label>Source</label>
+          <select id="incomeSource">
+            <option value="project">Project Payment</option>
+            <option value="consulting">Consulting</option>
+            <option value="service">Service</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Amount</label>
+          <input type="number" id="incomeAmount" required>
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="incomeDate">
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('incomeModal')">Cancel</button>
+          <button type="submit" class="btn btn-success">Add Income</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="decisionModal">
+    <div class="modal-content">
+      <h2>New Decision</h2>
+      <form id="decisionForm">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="decisionTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="decisionDescription"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('decisionModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="meetingModal">
+    <div class="modal-content">
+      <h2>Schedule Meeting</h2>
+      <form id="meetingForm">
+        <div class="form-group">
+          <label>Meeting Title</label>
+          <input type="text" id="meetingTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Date & Time</label>
+          <input type="datetime-local" id="meetingDateTime" required>
+        </div>
+        <div class="form-group">
+          <label>Agenda</label>
+          <textarea id="meetingAgenda"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('meetingModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Schedule</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="announcementModal">
+    <div class="modal-content">
+      <h2>New Announcement</h2>
+      <form id="announcementForm">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="announcementTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Content</label>
+          <textarea id="announcementContent" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('announcementModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="fileModal">
+    <div class="modal-content">
+      <h2>Upload File</h2>
+      <form id="fileForm">
+        <div class="form-group">
+          <label>File Name</label>
+          <input type="text" id="fileName" required>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="fileDescription"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="fileCategory">
+            <option value="document">Document</option>
+            <option value="design">Design</option>
+            <option value="code">Code</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn" onclick="closeModal('fileModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="userSelectModal">
+    <div class="modal-content">
+      <h2>Select Your Profile</h2>
+      <div class="user-select-grid" id="userSelectGrid"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/simple-peer@9.11.1/simplepeer.min.js"></script>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
